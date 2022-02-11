@@ -42,8 +42,12 @@ func CustomerDetails() {
 	customerJsonBytes, err := ioutil.ReadAll(customerJson)
 	errorCheck(err)
 
-	err = json.Unmarshal(customerJsonBytes, &cust)
-	errorCheck(err)
+	// fmt.Println("Length of customerJsonBytes", len(customerJsonBytes))
+
+	if len(customerJsonBytes) != 0 { //If the json file is empty then don't unmarshal it
+		err = json.Unmarshal(customerJsonBytes, &cust)
+		errorCheck(err)
+	}
 
 	cust = append(cust, structs.Customer{
 		Name:      name,
@@ -59,6 +63,7 @@ func CustomerDetails() {
 }
 
 func storeCustomerDetails() {
+	// fmt.Println(cust)
 	details, err := json.Marshal(cust)
 	errorCheck(err)
 
