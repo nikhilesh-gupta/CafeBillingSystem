@@ -29,7 +29,6 @@ START:
 
 	if endUser == "C" || endUser == "c" || endUser == "customer" || endUser == "Customer" {
 		users.CustomerDetails(scanner)
-		users.ShowMenu()
 
 	} else if endUser == "A" || endUser == "a" || endUser == "admin" || endUser == "Admin" {
 

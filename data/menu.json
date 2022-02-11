@@ -1,15 +1,54 @@
 {
-    "C": {"Coffee": 40},
-    "D": {"Dosa": 80},
-    "T": {"Tomato Soup": 20},
-    "I": {"Idli" : 20},
-    "V": {"Vada": 25},
-    "B": {"Bhature&Chhole": 30},
-    "P": {"Paneer Pakoda": 30},
-    "M": {"Manchurian": 90},
-    "H": {"Hakka Noodle": 70},
-    "F": {"French Fries": 30},
-    "J": {"Jalebi": 30},
-    "L": {"Lemonade": 15},
-    "S": {"spring Roll": 20}
+    "C": {
+        "dish": "Coffee",
+        "price":40
+    },
+    "D": {
+        "dish": "Dosa",
+        "price": 80
+    },
+    "T": {
+        "dish": "Tomato Soup",
+        "price": 20
+    },
+    "I": {
+        "dish": "Idli",
+        "price": 20
+    },
+    "V": {
+        "dish": "Vada",
+        "price": 25
+    },
+    "B": {
+        "dish": "Bhature&Chhole",
+        "price": 30
+    },
+    "P": {
+        "dish": "Paneer Pakoda",
+        "price": 30
+    },
+    "M": {
+        "dish": "Manchurian",
+        "price": 90
+    },
+    "H": {
+        "dish": "Hakka Noodle",
+        "price": 70
+    },
+    "F": {
+        "dish": "French Fries",
+        "price": 30
+    },
+    "J": {
+        "dish": "Jalebi",
+        "price": 30
+    },
+    "L": {
+        "dish": "Lemonade",
+        "price": 15
+    },
+    "S": {
+        "dish": "Spring Roll",
+        "price": 20
+    }
 }

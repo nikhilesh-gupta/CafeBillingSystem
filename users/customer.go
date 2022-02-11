@@ -9,6 +9,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/nikhilesh-gupta/CafeBillingSystem/bills"
 	"github.com/nikhilesh-gupta/CafeBillingSystem/structs"
 )
 
@@ -23,8 +24,8 @@ func CustomerDetails(scanner *bufio.Reader) {
 	//Variables
 	var name, email, contactNo, gender string
 	var age int
-	_, err := scanner.ReadString('\n')
-	errorCheck(err)
+	// _, err := scanner.ReadString('\n')
+	// errorCheck(err)
 
 	fmt.Println("Please enter your details [* one's are mandatory]")
 	fmt.Print("Name: ")
@@ -38,6 +39,8 @@ func CustomerDetails(scanner *bufio.Reader) {
 	fmt.Print("Age: ")
 	fmt.Scanln(&age)
 
+	// Show Menu
+	showMenu()
 	// Taking the orders
 	takeOrder()
 
@@ -76,6 +79,7 @@ func CustomerDetails(scanner *bufio.Reader) {
 	})
 
 	storeCustomerDetails()
+	bills.GenerateBill(cust, menu)
 
 }
 
@@ -95,7 +99,7 @@ func errorCheck(err error) {
 	}
 }
 
-func ShowMenu() {
+func showMenu() {
 	menuJson, err := os.Open("data/menu.json")
 	errorCheck(err)
 	defer menuJson.Close()
@@ -105,12 +109,30 @@ func ShowMenu() {
 
 	err = json.Unmarshal(menuJsonBytes, &menu)
 	errorCheck(err)
+
+	fmt.Println("\n-----------")
+	fmt.Println("MENU ")
+	fmt.Println("-----------")
+	// fmt.Println("Name \t\t\t Price")
+	fmt.Printf("%v - Rs.%v\n", menu.C.Dish, menu.C.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.D.Dish, menu.D.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.T.Dish, menu.T.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.I.Dish, menu.I.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.V.Dish, menu.V.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.B.Dish, menu.B.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.P.Dish, menu.P.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.M.Dish, menu.M.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.H.Dish, menu.H.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.F.Dish, menu.F.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.J.Dish, menu.J.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.L.Dish, menu.L.Price)
+	fmt.Printf("%v - Rs.%v\n", menu.S.Dish, menu.S.Price)
 }
 
 func takeOrder() {
 	var order structs.Order
 	for {
-		fmt.Print("Order: ")
+		fmt.Print("\nOrder: ")
 		fmt.Scanf("%s %s", &order.Quantity, &order.Dish)
 		if order.Quantity == "End" || order.Quantity == "end" || order.Quantity == "q" || order.Quantity == "quit" {
 			break

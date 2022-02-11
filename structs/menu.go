@@ -2,42 +2,55 @@ package structs
 
 type Menu struct {
 	C struct {
-		Coffee int `json:"Coffee"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"C"`
 	D struct {
-		Dosa int `json:"Dosa"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"D"`
 	T struct {
-		TomatoSoup int `json:"Tomato Soup"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"T"`
 	I struct {
-		Idli int `json:"Idli"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"I"`
 	V struct {
-		Vada int `json:"Vada"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"V"`
 	B struct {
-		BhatureChhole int `json:"Bhature&Chhole"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"B"`
 	P struct {
-		PaneerPakoda int `json:"Paneer Pakoda"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"P"`
 	M struct {
-		Manchurian int `json:"Manchurian"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"M"`
 	H struct {
-		HakkaNoodle int `json:"Hakka Noodle"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"H"`
 	F struct {
-		FrenchFries int `json:"French Fries"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"F"`
 	J struct {
-		Jalebi int `json:"Jalebi"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"J"`
 	L struct {
-		Lemonade int `json:"Lemonade"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"L"`
 	S struct {
-		SpringRoll int `json:"spring Roll"`
+		Dish  string `json:"dish"`
+		Price int    `json:"price"`
 	} `json:"S"`
 }
