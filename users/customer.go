@@ -1,6 +1,7 @@
 package users
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -14,13 +15,16 @@ import (
 // Global Variables
 var cust []structs.Customer
 var menu structs.Menu
+var custOrder []structs.Order
 
 // var details []structs.Customer
 
-func CustomerDetails() {
+func CustomerDetails(scanner *bufio.Reader) {
 	//Variables
 	var name, email, contactNo, gender string
 	var age int
+	_, err := scanner.ReadString('\n')
+	errorCheck(err)
 
 	fmt.Println("Please enter your details [* one's are mandatory]")
 	fmt.Print("Name: ")
@@ -34,6 +38,13 @@ func CustomerDetails() {
 	fmt.Print("Age: ")
 	fmt.Scanln(&age)
 
+	// Taking the orders
+	takeOrder()
+
+	if len(custOrder) == 0 { //If nothing is ordered
+		log.Fatal("\n[!]WARNING: \n\tSorry but you haven't ordered anything. \n\t[<NO BILL GENERATED>] \n\tPlease start the program again to order.")
+	}
+
 	//Unmarshalling
 	customerJson, err := os.Open("data/customerDetails.json")
 	errorCheck(err)
@@ -42,12 +53,13 @@ func CustomerDetails() {
 	customerJsonBytes, err := ioutil.ReadAll(customerJson)
 	errorCheck(err)
 
-	// fmt.Println("Length of customerJsonBytes", len(customerJsonBytes))
-
 	if len(customerJsonBytes) != 0 { //If the json file is empty then don't unmarshal it
 		err = json.Unmarshal(customerJsonBytes, &cust)
 		errorCheck(err)
 	}
+
+	// For Time Formatting
+	timeFormat := time.Now()
 
 	cust = append(cust, structs.Customer{
 		Name:      name,
@@ -55,7 +67,12 @@ func CustomerDetails() {
 		ContactNo: contactNo,
 		Gender:    gender,
 		Age:       age,
-		Time:      time.Now(),
+		Time: structs.TimeFormat{
+			Day:  timeFormat.Format("Monday"),
+			Date: timeFormat.Format("01-02-2006"),
+			Time: timeFormat.Format("15:04:05"),
+		},
+		Order: custOrder,
 	})
 
 	storeCustomerDetails()
@@ -63,8 +80,7 @@ func CustomerDetails() {
 }
 
 func storeCustomerDetails() {
-	// fmt.Println(cust)
-	details, err := json.Marshal(cust)
+	details, err := json.MarshalIndent(cust, "", " ")
 	errorCheck(err)
 
 	//Writing into JSON file
@@ -89,17 +105,16 @@ func ShowMenu() {
 
 	err = json.Unmarshal(menuJsonBytes, &menu)
 	errorCheck(err)
-
-	// fmt.Println(structs.Menu.C)
 }
 
-func TakeOrder() {
-	var order string
+func takeOrder() {
+	var order structs.Order
 	for {
 		fmt.Print("Order: ")
-		fmt.Scanln(&order)
-		if order == "End" || order == "end" || order == "q" || order == "quit" {
+		fmt.Scanf("%s %s", &order.Quantity, &order.Dish)
+		if order.Quantity == "End" || order.Quantity == "end" || order.Quantity == "q" || order.Quantity == "quit" {
 			break
 		}
+		custOrder = append(custOrder, order)
 	}
 }
