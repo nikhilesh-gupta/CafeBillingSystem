@@ -1,7 +1,6 @@
 package users
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -20,24 +19,42 @@ var custOrder []structs.Order
 
 // var details []structs.Customer
 
-func CustomerDetails(scanner *bufio.Reader) {
+func CustomerDetails() {
 	//Variables
-	var name, email, contactNo, gender string
+	var name, firstName, lastName, email, contactNo, gender string
 	var age int
-	// _, err := scanner.ReadString('\n')
-	// errorCheck(err)
 
-	fmt.Println("Please enter your details [* one's are mandatory]")
+	fmt.Println("Please enter your details -")
 	fmt.Print("Name: ")
-	fmt.Scanln(&name)
+	fmt.Scanf("%s%s", &firstName, &lastName)
+	name = firstName + " " + lastName
 	fmt.Print("Email: ")
 	fmt.Scanln(&email)
 	fmt.Print("Contact Number: ")
 	fmt.Scanln(&contactNo)
+
 	fmt.Print("Gender[M/F]: ")
 	fmt.Scanln(&gender)
+
+	// Validating Gender
+	if gender == "M" || gender == "m" {
+		gender = "M"
+	} else if gender == "F" || gender == "f" {
+		gender = "F"
+	} else {
+		fmt.Println("\n[!]WARNING: Please enter a valid type in Gender. Type 'M' or 'F'")
+		log.Fatal("\n[X]Error: Program flow is break, please restart the program to continue")
+	}
+
 	fmt.Print("Age: ")
 	fmt.Scanln(&age)
+	// Validating Age
+	if age < 4 || age > 121 {
+		fmt.Println("\n[!]WARNING: Please enter a valid Age range between 4yrs - 120yrs")
+		log.Fatal("\n[X]Error: Program flow is break, please restart the program to continue")
+	}
+
+	defer storeCustomerDetails()
 
 	// Show Menu
 	showMenu()
@@ -75,10 +92,10 @@ func CustomerDetails(scanner *bufio.Reader) {
 			Date: timeFormat.Format("01-02-2006"),
 			Time: timeFormat.Format("15:04:05"),
 		},
-		Order: custOrder,
+		Order:       custOrder,
+		TotalAmount: 0,
 	})
 
-	storeCustomerDetails()
 	bills.GenerateBill(cust, menu)
 
 }

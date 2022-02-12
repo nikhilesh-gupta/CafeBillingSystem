@@ -1,248 +1,118 @@
 [
  {
-  "Name": "Nikhilesh",
-  "Email": "nikhilesh@gmail.com",
-  "ContactNo": "916789234",
-  "Gender": "M",
-  "Age": 20,
-  "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "19:12:20"
-  },
-  "Order": [
-   {
-    "Quantity": "2",
-    "Dish": "F"
-   },
-   {
-    "Quantity": "3",
-    "Dish": "F"
-   },
-   {
-    "Quantity": "1",
-    "Dish": "A"
-   }
-  ]
- },
- {
   "Name": "Nikhil",
-  "Email": "nikhil@lynx.mail",
-  "ContactNo": "203010998",
+  "Email": "nikhil@gmail.com",
+  "ContactNo": "0012345678",
   "Gender": "M",
-  "Age": 20,
+  "Age": 19,
   "Time": {
-   "Day": "Friday",
+   "Day": "Saturday",
    "Date": "02-11-2022",
-   "Time": "22:09:31"
+   "Time": "07:32:51"
   },
   "Order": [
    {
-    "Quantity": "4",
-    "Dish": "C"
-   },
-   {
-    "Quantity": "4",
+    "Quantity": "1",
     "Dish": "D"
    },
    {
-    "Quantity": "8",
-    "Dish": "J"
-   }
-  ]
- },
- {
-  "Name": "Nikhilesh",
-  "Email": "nikhil@gupta.mail",
-  "ContactNo": "234556098",
-  "Gender": "M",
-  "Age": 20,
-  "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "22:22:24"
-  },
-  "Order": [
-   {
-    "Quantity": "4",
-    "Dish": "C"
-   },
-   {
-    "Quantity": "4",
+    "Quantity": "1",
     "Dish": "S"
    },
    {
-    "Quantity": "1",
-    "Dish": "H"
-   }
-  ]
- },
- {
-  "Name": "Nikhilesh",
-  "Email": "nik@mail.in",
-  "ContactNo": "092137861",
-  "Gender": "M",
-  "Age": 22,
-  "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "22:28:02"
-  },
-  "Order": [
-   {
-    "Quantity": "4",
-    "Dish": "C"
+    "Quantity": "2",
+    "Dish": "J"
    },
    {
     "Quantity": "1",
-    "Dish": "T"
+    "Dish": "C"
+   }
+  ],
+  "TotalAmount": 200
+ },
+ {
+  "Name": "Nikhilesh Gupta",
+  "Email": "nikhilesh@gmail.com",
+  "ContactNo": "1102345678",
+  "Gender": "M",
+  "Age": 20,
+  "Time": {
+   "Day": "Saturday",
+   "Date": "02-11-2022",
+   "Time": "07:34:33"
+  },
+  "Order": [
+   {
+    "Quantity": "3",
+    "Dish": "B"
+   },
+   {
+    "Quantity": "2",
+    "Dish": "F"
    },
    {
     "Quantity": "3",
     "Dish": "J"
    },
-   {
-    "Quantity": "1",
-    "Dish": "S"
-   }
-  ]
- },
- {
-  "Name": "Sneha",
-  "Email": "sneha@mail",
-  "ContactNo": "234459080",
-  "Gender": "F",
-  "Age": 22,
-  "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "22:31:59"
-  },
-  "Order": [
-   {
-    "Quantity": "2",
-    "Dish": "C"
-   },
-   {
-    "Quantity": "2",
-    "Dish": "D"
-   },
-   {
-    "Quantity": "1",
-    "Dish": "J"
-   },
-   {
-    "Quantity": "1",
-    "Dish": "M"
-   }
-  ]
- },
- {
-  "Name": "Deepa",
-  "Email": "deepa.mail",
-  "ContactNo": "995567589",
-  "Gender": "F",
-  "Age": 57,
-  "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "22:34:43"
-  },
-  "Order": [
    {
     "Quantity": "1",
     "Dish": "I"
    },
    {
-    "Quantity": "1",
-    "Dish": "V"
-   },
-   {
-    "Quantity": "1",
+    "Quantity": "3",
     "Dish": "C"
    }
-  ]
+  ],
+  "TotalAmount": 380
  },
  {
-  "Name": "Kuu",
-  "Email": "kuu@mail",
-  "ContactNo": "077",
+  "Name": "Sneha Gupta",
+  "Email": "sneha@gmail.com",
+  "ContactNo": "6602199833",
   "Gender": "F",
   "Age": 22,
   "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "22:35:46"
-  },
-  "Order": [
-   {
-    "Quantity": "3",
-    "Dish": "F"
-   },
-   {
-    "Quantity": "3",
-    "Dish": "L"
-   },
-   {
-    "Quantity": "3",
-    "Dish": "S"
-   }
-  ]
- },
- {
-  "Name": "Shantanu",
-  "Email": "shan@mail",
-  "ContactNo": "700187678",
-  "Gender": "M",
-  "Age": 23,
-  "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "22:37:38"
+   "Day": "Saturday",
+   "Date": "02-12-2022",
+   "Time": "07:35:42"
   },
   "Order": [
    {
     "Quantity": "2",
-    "Dish": "D"
-   },
-   {
-    "Quantity": "2",
-    "Dish": "C"
-   },
-   {
-    "Quantity": "4",
-    "Dish": "J"
-   }
-  ]
- },
- {
-  "Name": "Satyam",
-  "Email": "satyam@mail",
-  "ContactNo": "102030090",
-  "Gender": "M",
-  "Age": 24,
-  "Time": {
-   "Day": "Friday",
-   "Date": "02-11-2022",
-   "Time": "22:40:22"
-  },
-  "Order": [
-   {
-    "Quantity": "4",
     "Dish": "H"
    },
    {
-    "Quantity": "4",
+    "Quantity": "1",
     "Dish": "M"
    },
    {
     "Quantity": "2",
     "Dish": "L"
+   }
+  ],
+  "TotalAmount": 260
+ },
+ {
+  "Name": "Rahul Prajapat",
+  "Email": "rahul@raj.in",
+  "ContactNo": "3770178935",
+  "Gender": "M",
+  "Age": 21,
+  "Time": {
+   "Day": "Saturday",
+   "Date": "02-12-2022",
+   "Time": "09:28:59"
+  },
+  "Order": [
+   {
+    "Quantity": "1",
+    "Dish": "B"
    },
    {
-    "Quantity": "2",
+    "Quantity": "1",
     "Dish": "C"
    }
-  ]
+  ],
+  "TotalAmount": 70
  }
 ]

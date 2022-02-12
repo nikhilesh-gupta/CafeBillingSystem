@@ -1,10 +1,8 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/nikhilesh-gupta/CafeBillingSystem/users"
 )
@@ -20,7 +18,6 @@ func main() {
 	// Variables
 	var endUser string
 	var invalidCounter int
-	scanner := bufio.NewReader(os.Stdin)
 
 	//Start of the Program
 START:
@@ -28,10 +25,10 @@ START:
 	fmt.Scanln(&endUser)
 
 	if endUser == "C" || endUser == "c" || endUser == "customer" || endUser == "Customer" {
-		users.CustomerDetails(scanner)
+		users.CustomerDetails()
 
 	} else if endUser == "A" || endUser == "a" || endUser == "admin" || endUser == "Admin" {
-
+		users.Admin()
 	} else {
 		if invalidCounter == 3 {
 			log.Fatal("\n[X]EXITING: Too many invalid inputs.")

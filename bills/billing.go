@@ -10,7 +10,7 @@ import (
 
 var totalAmount int
 
-func dishDetails(dish string, cust []structs.Customer, menu structs.Menu) (name string, price int) {
+func DishDetails(dish string, cust []structs.Customer, menu structs.Menu) (name string, price int) {
 	switch dish {
 	case "C":
 		name = menu.C.Dish
@@ -90,7 +90,7 @@ func GenerateBill(cust []structs.Customer, menu structs.Menu) {
 	func() { //Anonymous function to calculate total amount
 		for _, val := range cust[len(cust)-1].Order {
 			quantity, err := strconv.Atoi(val.Quantity)
-			name, price := dishDetails(string(val.Dish), cust, menu)
+			name, price := DishDetails(string(val.Dish), cust, menu)
 			fmt.Printf("\t%s x%d\n", name, quantity)
 			if err != nil {
 				log.Fatal("\n[!]ERROR: ", err)
@@ -100,6 +100,9 @@ func GenerateBill(cust []structs.Customer, menu structs.Menu) {
 	}()
 	fmt.Println("_______________________________")
 	fmt.Println("Total Amount: Rs.", totalAmount)
+
+	// Storing Total Amount in Json
+	cust[len(cust)-1].TotalAmount = totalAmount
 
 	fmt.Println("\nThankyou for buying from XYZ Cafe. Please come here again ")
 }
