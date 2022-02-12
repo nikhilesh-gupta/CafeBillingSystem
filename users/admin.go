@@ -16,16 +16,32 @@ import (
 // Global Variables
 var details []structs.Customer
 
-func TotalSalesOfTheDay() {
+func totalSalesOfTheDay() {
 	// Variables
 	var totalSales int
 	var check string
 
 	timeFormat := time.Now()
 	check = timeFormat.Format("01-02-2006")
-	for i := range details {
-		if check == details[i].Time.Date {
-			totalSales += details[i].TotalAmount
+	for index := range details {
+		if check == details[index].Time.Date {
+			totalSales += details[index].TotalAmount
+		}
+	}
+
+	fmt.Printf("\nTotal Sales: %v\n", totalSales)
+
+	adminOptions()
+}
+
+func specificDaySales() {
+	var totalSales int
+	var check string
+	fmt.Print("Enter the date[format -> MM-DD-YY]: ")
+	fmt.Scanln(&check)
+	for index := range details {
+		if check == details[index].Time.Date {
+			totalSales += details[index].TotalAmount
 		}
 	}
 
@@ -38,8 +54,8 @@ func totalSales() {
 	// Variables
 	var totalSales int
 
-	for i := range details {
-		totalSales += details[i].TotalAmount
+	for index := range details {
+		totalSales += details[index].TotalAmount
 	}
 
 	fmt.Printf("\nTotal Sales: %v\n", totalSales)
@@ -67,7 +83,7 @@ func printCustomerDetails(index int) {
 	fmt.Print("\n\n")
 }
 
-func CustomerDetailsOfTheDay() {
+func customerDetailsOfTheDay() {
 	// Variables
 	var check string
 
@@ -75,6 +91,24 @@ func CustomerDetailsOfTheDay() {
 	check = timeFormat.Format("01-02-2006")
 
 	fmt.Println("\nToday's Customer Details")
+	fmt.Print("________________________\n\n")
+
+	for index := range details {
+		if check == details[index].Time.Date {
+			printCustomerDetails(index)
+		}
+	}
+	adminOptions()
+}
+
+func specificDayCustomerDetails() {
+	// Variables
+	var check string
+
+	fmt.Print("Enter the date[format -> MM-DD-YY]: ")
+	fmt.Scanln(&check)
+
+	fmt.Println("\nCustomer Details of ", check)
 	fmt.Print("________________________\n\n")
 
 	for index := range details {
@@ -105,8 +139,10 @@ func showOptions() {
 	fmt.Println("'S' - print Overall Sales")
 	fmt.Println("'f' - print Full-Details of Today's Customers")
 	fmt.Println("'F' - print Full-Details of all Customers")
+	fmt.Println("'c' - prints a Specific day Sales")
+	fmt.Println("'C' - prints a Specific day Customer's details")
 
-	fmt.Println("'h' - help / show commands")
+	fmt.Println("'h' - help/show commands")
 	fmt.Println("'q' - to quit")
 
 	adminOptions()
@@ -127,15 +163,19 @@ func adminOptions() {
 
 	switch option {
 	case "s":
-		TotalSalesOfTheDay()
+		totalSalesOfTheDay()
 	case "S":
 		totalSales()
 	case "f":
-		CustomerDetailsOfTheDay()
+		customerDetailsOfTheDay()
 	case "F":
 		totalCustomerDetails()
 	case "h":
 		showOptions()
+	case "c":
+		specificDaySales()
+	case "C":
+		specificDayCustomerDetails()
 	case "q":
 		fmt.Print("\n\n")
 		fmt.Println("[Admin Panel Closed]")

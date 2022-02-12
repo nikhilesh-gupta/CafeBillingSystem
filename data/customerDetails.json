@@ -7,7 +7,7 @@
   "Age": 19,
   "Time": {
    "Day": "Saturday",
-   "Date": "02-11-2022",
+   "Date": "02-10-2022",
    "Time": "07:32:51"
   },
   "Order": [
@@ -114,5 +114,36 @@
    }
   ],
   "TotalAmount": 70
+ },
+ {
+  "Name": "Saket ",
+  "Email": "saket@gmail.com",
+  "ContactNo": "5618201283",
+  "Gender": "M",
+  "Age": 20,
+  "Time": {
+   "Day": "Saturday",
+   "Date": "02-12-2022",
+   "Time": "11:19:05"
+  },
+  "Order": [
+   {
+    "Quantity": "1",
+    "Dish": "H"
+   },
+   {
+    "Quantity": "1",
+    "Dish": "F"
+   },
+   {
+    "Quantity": "1",
+    "Dish": "S"
+   },
+   {
+    "Quantity": "1",
+    "Dish": "C"
+   }
+  ],
+  "TotalAmount": 160
  }
 ]

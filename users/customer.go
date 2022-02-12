@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/nikhilesh-gupta/CafeBillingSystem/bills"
@@ -17,7 +19,9 @@ var cust []structs.Customer
 var menu structs.Menu
 var custOrder []structs.Order
 
-// var details []structs.Customer
+func Fatal() {
+	log.Fatal("\n[X]Error: Program flow is break, please restart the program to continue")
+}
 
 func CustomerDetails() {
 	//Variables
@@ -30,8 +34,21 @@ func CustomerDetails() {
 	name = firstName + " " + lastName
 	fmt.Print("Email: ")
 	fmt.Scanln(&email)
+
+	// Validate Email
+	if !strings.Contains(email, "@") {
+		fmt.Println("\n[!]WARNING: Please enter a valid Email ID. It should contain '@'")
+		Fatal()
+	}
+
 	fmt.Print("Contact Number: ")
 	fmt.Scanln(&contactNo)
+
+	// Validate Contact Number
+	if _, err := strconv.Atoi(contactNo); err != nil {
+		fmt.Println("\n[!]WARNING: Please enter a valid Contact number. It should only contains digits")
+		Fatal()
+	}
 
 	fmt.Print("Gender[M/F]: ")
 	fmt.Scanln(&gender)
@@ -43,15 +60,15 @@ func CustomerDetails() {
 		gender = "F"
 	} else {
 		fmt.Println("\n[!]WARNING: Please enter a valid type in Gender. Type 'M' or 'F'")
-		log.Fatal("\n[X]Error: Program flow is break, please restart the program to continue")
+		Fatal()
 	}
 
 	fmt.Print("Age: ")
 	fmt.Scanln(&age)
 	// Validating Age
-	if age < 4 || age > 121 {
-		fmt.Println("\n[!]WARNING: Please enter a valid Age range between 4yrs - 120yrs")
-		log.Fatal("\n[X]Error: Program flow is break, please restart the program to continue")
+	if age < 5 || age > 95 {
+		fmt.Println("\n[!]WARNING: Please enter a valid Age range between 5yrs - 95yrs")
+		Fatal()
 	}
 
 	defer storeCustomerDetails()
@@ -144,6 +161,9 @@ func showMenu() {
 	fmt.Printf("%v - Rs.%v\n", menu.J.Dish, menu.J.Price)
 	fmt.Printf("%v - Rs.%v\n", menu.L.Dish, menu.L.Price)
 	fmt.Printf("%v - Rs.%v\n", menu.S.Dish, menu.S.Price)
+
+	fmt.Print("\n\n")
+	fmt.Println("[Enter the quantity then first letter of the dish with a space between them.\nLike: '4 H', '3 b']")
 }
 
 func takeOrder() {
@@ -153,6 +173,13 @@ func takeOrder() {
 		fmt.Scanf("%s %s", &order.Quantity, &order.Dish)
 		if order.Quantity == "End" || order.Quantity == "end" || order.Quantity == "q" || order.Quantity == "quit" {
 			break
+		}
+		if len(order.Quantity) > 1 {
+			fmt.Println("\n[!]WARNING: Enter your order in the valid format as specified")
+			log.Fatal("\n[X]Error: Program flow is break, please restart the program to continue")
+		}
+		if order.Dish == strings.ToLower(order.Dish) {
+			order.Dish = strings.ToUpper(order.Dish)
 		}
 		custOrder = append(custOrder, order)
 	}
